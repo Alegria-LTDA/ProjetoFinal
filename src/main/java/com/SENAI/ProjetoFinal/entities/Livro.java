@@ -16,23 +16,28 @@ public class Livro {
 	private Integer id;
 	@Column(nullable = false)
 	private String nome;
-	
+	@Column
+	private String genero;
+	@Column
+	private String sinopse;
+	@Column
+	private Integer ano;
+
 	public Livro() {
 	}
 
 	@ManyToOne
 	@JoinColumn(name = "editora_id", nullable = true)
 	public Editora editora;
-	
-	public Livro(Integer id, String nome) {
+
+	public Livro(Integer id, String nome, String genero, String sinopse, Integer ano, Editora editora) {
 		super();
 		this.id = id;
 		this.nome = nome;
-
-	}
-
-	public Integer getId() {
-		return id;
+		this.genero = genero;
+		this.sinopse = sinopse;
+		this.ano = ano;
+		this.editora = editora;
 	}
 
 	public String getNome() {
@@ -43,12 +48,40 @@ public class Livro {
 		this.nome = nome;
 	}
 
+	public String getGenero() {
+		return genero;
+	}
+
+	public void setGenero(String genero) {
+		this.genero = genero;
+	}
+
+	public String getSinopse() {
+		return sinopse;
+	}
+
+	public void setSinopse(String sinopse) {
+		this.sinopse = sinopse;
+	}
+
+	public Integer getAno() {
+		return ano;
+	}
+
+	public void setAno(Integer ano) {
+		this.ano = ano;
+	}
+
 	public Editora getEditora() {
 		return editora;
 	}
 
 	public void setEditora(Editora editora) {
 		this.editora = editora;
+	}
+
+	public Integer getId() {
+		return id;
 	}
 
 }
